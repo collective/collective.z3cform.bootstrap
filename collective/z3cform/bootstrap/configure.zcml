@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.z3cform.bootstrap">
+
+  <!-- Include configuration for dependencies listed in setup.py -->
+  <includeDependencies package="." />
+
+  <!-- Register a resource directory from which we can deploy static
+   resource files. -->
+  <browser:resourceDirectory
+    name="collective.z3cform.bootstrap"
+    directory="resources" />
+
+</configure>
