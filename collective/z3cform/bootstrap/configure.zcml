@@ -20,4 +20,15 @@
               handler=".utils.before_traversal_event_handler"
               />
 
+  <!-- Template overrides -->
+
+  <!-- global_statusmessge -->
+  <browser:page
+      for="*"
+      layer=".interfaces.IBootstrapLayer"
+      name="global_statusmessage"
+      permission="zope2.View"
+      template="templates/global_statusmessage.pt"
+      />
+
 </configure>

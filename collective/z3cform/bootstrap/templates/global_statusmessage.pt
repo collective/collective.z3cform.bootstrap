@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone"
+      tal:omit-tag="">
+
+  <tal:block i18n:domain="plone"
+             metal:define-macro="portal_message">
+
+    <tal:statusmsg tal:define="messages python:context.plone_utils.showPortalMessages()"
+                   tal:repeat="message messages">
+      <div class="alert alert-info"
+           tal:define="mtype message/type | nothing;
+                       alert_class python:mtype == 'warn' and 'info' or mtype == 'info' and 'success' or mtype"
+           tal:attributes="class python:' '.join(('alert', 'alert-' + alert_class))"
+           >
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>
+          <span i18n:translate="" tal:replace="python:mtype.capitalize()">Information</span>!
+        </strong>
+        <span tal:replace="message/message | nothing">The status message.</span>
+      </div>
+
+    </tal:statusmsg>
+  </tal:block>
+
+</html>
