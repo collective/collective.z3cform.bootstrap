@@ -64,4 +64,10 @@
       permission="zope.Public"
       />
 
+  <!-- Button actions for forms -->
+  <adapter
+      provides="z3c.form.interfaces.IButtonAction"
+      factory=".button.ButtonAction"
+      />
+
 </configure>
