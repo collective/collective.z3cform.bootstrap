@@ -26,7 +26,7 @@ setup(name='collective.z3cform.bootstrap',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'z3c.form',
+          'plone.app.z3cform',
       ],
       entry_points="""
       # -*- Entry points: -*-
