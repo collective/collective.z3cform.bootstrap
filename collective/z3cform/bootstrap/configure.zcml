@@ -42,4 +42,7 @@
       permission="zope.Public"
       />
 
+  <!-- subform template -->
+  <adapter factory=".templates.subform_factory" />
+
 </configure>
