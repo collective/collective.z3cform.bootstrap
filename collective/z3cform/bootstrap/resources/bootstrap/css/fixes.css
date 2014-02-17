@@ -1,0 +1,18 @@
+/* Some fixes for cases where the default Bootstrap CSS does not
+   work for collecitve.z3cform.bootstrap.
+   */
+
+/* the margin at the bottom of the fieldset legend looks wierd. */
+.modal-body legend {
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+/* Fix margin for form-groups in subforms of horizontal forms
+   .form-horizontal .form-group has negative margins on the
+   right and left.
+ */
+.subform .form-group {
+    margin-left: 0px;
+    margin-right: 0px;
+}
