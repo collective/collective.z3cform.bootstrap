@@ -31,4 +31,15 @@
       template="templates/global_statusmessage.pt"
       />
 
+  <!-- plonform-macros -->
+  <browser:page
+      name="ploneform-macros"
+      for="*"
+      layer=".interfaces.IBootstrapLayer"
+      class="plone.app.z3cform.templates.Macros"
+      template="templates/macros.pt"
+      allowed_interface="zope.interface.common.mapping.IItemMapping"
+      permission="zope.Public"
+      />
+
 </configure>
