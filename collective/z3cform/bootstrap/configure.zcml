@@ -13,4 +13,11 @@
     name="collective.z3cform.bootstrap"
     directory="resources" />
 
+  <!-- Handler to set the bootstrap layer on requests traversing objects
+  marked with IBootstrapObjectMarker -->
+  <subscriber for=".interfaces.IBootstrapObjectMarker
+                   zope.traversing.interfaces.IBeforeTraverseEvent"
+              handler=".utils.before_traversal_event_handler"
+              />
+
 </configure>
