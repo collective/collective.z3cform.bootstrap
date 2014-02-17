@@ -1,0 +1,58 @@
+<div metal:define-macro="widget-wrapper"
+     i18n:domain="plone"
+     class="form-group row"
+     tal:define="widget nocall:context;
+                 hidden python:widget.mode == 'hidden';
+                 error widget/error;
+                 error_class python:error and ' has-error' or '';
+                 fieldname_class string:kssattr-fieldname-${widget/name};"
+     tal:attributes="class string:form-group row field z3cformInlineValidation ${fieldname_class}${error_class};
+                     data-fieldname widget/name;
+                     id string:formfield-${widget/id};">
+
+  <div class="col-sm-2 control-label"
+       tal:condition="not:hidden">
+    <label for=""
+           tal:attributes="for widget/id"
+           >
+
+      <span class="label-title" i18n:translate="" tal:content="widget/label">
+        Input Label
+      </span>
+      <i class="glyphicon glyphicon-asterisk required horizontal" title="Required"
+         i18n:attributes="title title_required;"
+         tal:condition="python:widget.required and widget.mode == 'input'"></i>
+
+    </label>
+
+    <button type="button"
+            id="#label-popover"
+            href="#"
+            class="btn btn-info btn-xs popover-activate"
+            title="Info"
+            data-placement="left"
+            data-html="true"
+            data-container="body"
+            i18n:translate=""
+            i18n:attributes="title"
+            tal:define="description widget/field/description"
+            tal:attributes="data-content description;
+                            data-container string:#formfield-${widget/id};
+                            id string:${widget/id}-popover"
+            tal:condition="python:description"
+            >
+      Info
+    </button>
+  </div>
+  <div class="col-sm-10 controls">
+    <input type="text" tal:replace="structure widget/render"
+           metal:define-slot="widget" />
+
+    <span class="help-block fieldErrorBox"
+          tal:condition="error"
+          tal:content="error/message">
+      Error
+    </span>
+
+  </div>
+</div>

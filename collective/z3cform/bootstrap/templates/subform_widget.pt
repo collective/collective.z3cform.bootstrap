@@ -1,0 +1,43 @@
+<div metal:define-macro="widget-wrapper"
+     i18n:domain="plone"
+     class="form-group"
+     tal:define="widget nocall:context;
+                 hidden python:widget.mode == 'hidden';
+                 error widget/error;
+                 error_class python:error and ' error' or '';
+                 fieldname_class string:kssattr-fieldname-${widget/name};"
+     tal:attributes="class string:form-group field z3cformInlineValidation ${fieldname_class}${error_class};
+                     data-fieldname widget/name;
+                     id string:formfield-${widget/id};">
+
+  <label for=""
+         tal:attributes="for widget/id"
+         tal:condition="not:hidden">
+
+    <span class="label-title" i18n:translate="" tal:content="widget/label">
+      Input Label
+      <i class="glyphicon glyphicon-star required horizontal" title="Required"
+         i18n:attributes="title title_required;"
+         tal:condition="python:widget.required and not hidden"></i>
+    </span>
+
+  </label>
+
+  <input type="text" tal:replace="structure widget/render"
+         metal:define-slot="widget" />
+
+  <span class="help-block text-danger fieldErrorBox"
+        tal:condition="error"
+        tal:content="error/message">
+    Error
+  </span>
+
+  <span class="help-block"
+        tal:define="description widget/field/description"
+        tal:content="description"
+        tal:condition="python:description"
+        >
+    Description
+  </span>
+
+</div>

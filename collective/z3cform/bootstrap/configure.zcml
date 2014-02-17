@@ -45,4 +45,23 @@
   <!-- subform template -->
   <adapter factory=".templates.subform_factory" />
 
+  <!-- widget wrapper -->
+  <browser:page
+      name="ploneform-render-widget"
+      for="z3c.form.interfaces.IWidget"
+      layer=".interfaces.IBootstrapLayer"
+      class=".templates.RenderWidget"
+      permission="zope.Public"
+      />
+
+  <!-- plone.app.z3cform registers a special wrapper for ISingleCheckBoxWidget,
+  this needs to be overriden here. -->
+  <browser:page
+      name="ploneform-render-widget"
+      for="z3c.form.interfaces.ISingleCheckBoxWidget"
+      layer=".interfaces.IBootstrapLayer"
+      class=".templates.RenderWidget"
+      permission="zope.Public"
+      />
+
 </configure>
