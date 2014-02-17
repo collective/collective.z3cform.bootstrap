@@ -70,4 +70,12 @@
       factory=".button.ButtonAction"
       />
 
+  <!-- Error view snippets template -->
+  <adapter
+      for="z3c.form.interfaces.IErrorViewSnippet
+           .interfaces.IBootstrapLayer"
+      provides="zope.pagetemplate.interfaces.IPageTemplate"
+      factory=".error.StandardErrorViewTemplate"
+      />
+
 </configure>
