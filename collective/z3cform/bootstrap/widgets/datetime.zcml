@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="collective.z3cform.bootstrap">
+
+  <adapter
+      factory=".datetime.DateFieldWidget"
+      provides="z3c.form.interfaces.IFieldWidget"
+      for="zope.schema._field.Date
+           ..interfaces.IBootstrapLayer"
+      />
+
+  <adapter
+      factory=".datetime.DatetimeFieldWidget"
+      provides="z3c.form.interfaces.IFieldWidget"
+      for="zope.schema._field.Datetime
+           ..interfaces.IBootstrapLayer"
+      />
+
+  <z3c:widgetTemplate
+      layer="..interfaces.IBootstrapLayer"
+      mode="input"
+      template="templates/datetime_input.pt"
+      widget="collective.z3cform.datetimewidget.interfaces.IDateWidget"
+      />
+
+  <z3c:widgetTemplate
+      layer="..interfaces.IBootstrapLayer"
+      mode="input"
+      template="templates/datetime_input.pt"
+      widget="collective.z3cform.datetimewidget.interfaces.IDatetimeWidget"
+      />
+
+</configure>

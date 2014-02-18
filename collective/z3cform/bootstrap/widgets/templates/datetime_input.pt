@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag="">
+    <div class=""
+         tal:attributes="id view/id;
+                         class view/klass;
+                         style view/style;
+                         onclick view/onclick;
+                         ondblclick view/ondblclick;
+                         onmousedown view/onmousedown;
+                         onmouseup view/onmouseup;
+                         onmouseover view/onmouseover;
+                         onmousemove view/onmousemove;
+                         onmouseout view/onmouseout;
+                         onkeypress view/onkeypress;
+                         onkeydown view/onkeydown;
+                         onkeyup view/onkeyup;
+                         "
+         >
+      <div class="input-group bootstrap-datetimepicker"
+           tal:attributes="id string:${view/id}-datetimepicker;
+                           data-widgetid view/id;
+                           data-language view/lang;
+                           data-pickDate python:view.pickDate and 'true' or 'false';
+                           data-pickTime python:view.pickTime and 'true' or 'false';
+                           "
+           >
+      <input type="text"
+             class="form-control"
+             tal:attributes="name view/name;
+                             title view/title;
+                             lang view/lang;
+                             disabled view/disabled;
+                             tabindex view/tabindex;
+                             onfocus view/onfocus;
+                             onblur view/onblur;
+                             onchange view/onchange;
+                             readonly view/readonly;
+                             alt view/alt;
+                             accesskey view/accesskey;
+                             onselect view/onselect;
+                             size view/size;
+                             maxlength view/maxlength;
+                             "
+             />
+      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+      </div>
+      <input type="hidden"
+             tal:condition="view/pickDate"
+             tal:attributes="id string:${view/id}-day;
+                             name string:${view/name}-day;
+                             value view/day;"
+             />
+      <input type="hidden"
+             tal:condition="view/pickDate"
+             tal:attributes="id string:${view/id}-month;
+                             name string:${view/name}-month;
+                             value view/month;"
+             />
+      <input type="hidden"
+             tal:condition="view/pickDate"
+             tal:attributes="id string:${view/id}-year;
+                             name string:${view/name}-year;
+                             value view/year;"
+             />
+      <input type="hidden"
+             tal:condition="view/pickTime"
+             tal:attributes="id string:${view/id}-hour;
+                             name string:${view/name}-hour;
+                             value view/hour;"
+             />
+      <input type="hidden"
+             tal:condition="view/pickTime"
+             tal:attributes="id string:${view/id}-min;
+                             name string:${view/name}-min;
+                             value view/minute;"
+             />
+    </div>
+</html>

@@ -28,6 +28,11 @@ setup(name='collective.z3cform.bootstrap',
           'setuptools',
           'plone.app.z3cform',
       ],
+      extras_require={
+        'datetime': [
+            'collective.z3cform.datetimewidget',
+            ],
+        },
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]

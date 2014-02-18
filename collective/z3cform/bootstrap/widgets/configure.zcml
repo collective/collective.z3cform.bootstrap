@@ -8,4 +8,8 @@
   <include file="checkbox.zcml" />
   <include file="radio.zcml" />
 
+  <!-- DateWidget and DatetimeWidget -->
+  <include zcml:condition="installed collective.z3cform.datetimewidget"
+           file="datetime.zcml" />
+
 </configure>
