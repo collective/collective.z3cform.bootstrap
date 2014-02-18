@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="collective.z3cform.bootstrap">
+
+  <!-- z3c.form widgets -->
+  <include file="checkbox.zcml" />
+  <include file="radio.zcml" />
+
+</configure>

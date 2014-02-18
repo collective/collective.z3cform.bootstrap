@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="collective.z3cform.bootstrap">
+
+  <!-- This is possible by only overriding the widgetTemplate for
+       RadioWidget on IBootstrapLayer -->
+  <z3c:widgetTemplate
+      mode="input"
+      widget="z3c.form.interfaces.IRadioWidget"
+      template="templates/radio_input.pt"
+      layer="..interfaces.IBootstrapLayer"
+      />
+
+</configure>

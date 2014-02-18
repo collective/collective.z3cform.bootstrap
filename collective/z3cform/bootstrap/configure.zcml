@@ -7,6 +7,8 @@
   <!-- Include configuration for dependencies listed in setup.py -->
   <includeDependencies package="." />
 
+  <include package=".widgets" />
+
   <!-- Register a resource directory from which we can deploy static
    resource files. -->
   <browser:resourceDirectory
